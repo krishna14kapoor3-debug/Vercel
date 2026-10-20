@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zero to One | Web Design, Software &amp; Growth Marketing</title>
+<title>The Better Website | Web Design, Software &amp; Growth Marketing</title>
 <meta name="description" content="One team for your website, custom software and growth marketing: web design, SEO, performance marketing and AI chatbots.">
 <meta name="theme-color" content="#0a0a0f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@ h2{font-size:clamp(2.2rem,5vw,4.2rem)}
 #glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.18),transparent 65%);pointer-events:none;z-index:0;left:-210px;top:-210px}
 /* nav */
 nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1100px,92vw);display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 22px;border-radius:99px;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(16px);border:1px solid var(--line);z-index:90}
-nav .logo{font-weight:600;letter-spacing:.2em}
+nav .logo{font-weight:600;letter-spacing:-.01em;white-space:nowrap}
 nav .links{display:flex;gap:28px;color:var(--mut);font-size:.9rem}
 nav .links a:hover{color:var(--fg)}
 nav .r{display:flex;gap:10px;align-items:center}
@@ -112,7 +112,7 @@ footer a:hover{color:var(--fg)}
 <div id="bar"></div><div id="glow"></div>
 
 <nav>
-  <a class="logo" href="#"><img src="https://zerotoonebrand.in/assets/zero-to-one-original.webp" alt="Zero to One" height="26" style="display:block;height:26px;width:auto"></a>
+  <a class="logo" href="#">The Better Website</a>
   <div class="links"><a href="#features">Services</a><a href="#agents">Work</a><a href="#why">About</a><a href="#contact">Contact</a></div>
   <div class="r"><button id="theme" aria-label="Toggle theme">☀️</button><a class="btn" href="#contact">Get in touch</a></div>
 </nav>
@@ -187,7 +187,7 @@ footer a:hover{color:var(--fg)}
 </section>
 
 <section id="cta">
-  <div class="bgtext">ZERO→ONE</div>
+  <div class="bgtext">BETTER</div>
   <h2>Ready to build something <span class="serif">that performs?</span></h2>
   <a class="btn" href="https://wa.me/918830241857?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener">WhatsApp us →</a>
 </section>
@@ -204,7 +204,7 @@ footer a:hover{color:var(--fg)}
   </form>
 </section>
 
-<footer><span>© 2026 Zero to One. All rights reserved.</span><span><a href="mailto:info@zerotoonebrand.in">info@zerotoonebrand.in</a> · <a href="tel:+918830241857">+91 88302 41857</a> · <a href="https://zerotoonebrand.in/privacy-policy">Privacy</a> · <a href="https://zerotoonebrand.in/terms-conditions">Terms</a></span></footer>
+<footer><span>© 2026 The Better Website  All rights reserved.</span><span><a href="mailto:info@zerotoonebrand.in">info@zerotoonebrand.in</a> · <a href="tel:+918830241857">+91 88302 41857</a> · <a href="https://zerotoonebrand.in/privacy-policy">Privacy</a> · <a href="https://zerotoonebrand.in/terms-conditions">Terms</a></span></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -216,7 +216,7 @@ addEventListener('load',()=>ScrollTrigger.refresh());
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* Smooth scroll synced with ScrollTrigger */
-const lenis = new Lenis({lerp:.09,syncTouch:true,syncTouchLerp:.1});
+const lenis = new Lenis({lerp:.09,syncTouch:true,syncTouchLerp:.06,touchMultiplier:.6});
 lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add(t => lenis.raf(t*1000));
 gsap.ticker.lagSmoothing(0);
