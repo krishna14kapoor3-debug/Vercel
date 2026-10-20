@@ -60,7 +60,7 @@ nav .r{display:flex;gap:10px;align-items:center}
 .chip{padding:10px 14px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between}
 .chip b{color:var(--acc2)}
 .pbar{height:6px;border-radius:9px;background:var(--line);overflow:hidden}.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2))}
-@media(max-width:800px){.fcard{grid-template-columns:1fr;position:relative;top:0}}
+@media(max-width:800px){.fcard{grid-template-columns:1fr;top:80px;padding:28px}}
 /* agents horizontal */
 #agents{padding:0;overflow:hidden}
 .pin{height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center}
@@ -216,7 +216,7 @@ addEventListener('load',()=>ScrollTrigger.refresh());
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* Smooth scroll synced with ScrollTrigger */
-const lenis = new Lenis({lerp:.09});
+const lenis = new Lenis({lerp:.09,syncTouch:true,syncTouchLerp:.1});
 lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add(t => lenis.raf(t*1000));
 gsap.ticker.lagSmoothing(0);
@@ -254,7 +254,7 @@ gsap.utils.toArray('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1,ease:
 
 /* Stacking feature cards: scale/dim previous cards as next slides over */
 const cards=gsap.utils.toArray('.fcard');
-if(innerWidth>800) cards.forEach((c,i)=>{
+cards.forEach((c,i)=>{
   if(i===cards.length-1) return;
   gsap.to(c,{scale:.92-(cards.length-i)*.01,opacity:.5,ease:'none',
     scrollTrigger:{trigger:cards[i+1],start:'top 75%',end:'top 110px',scrub:true}});
