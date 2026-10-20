@@ -44,7 +44,7 @@ nav .r{display:flex;gap:10px;align-items:center}
 .line>span{display:block;transform:translateY(110%)}
 #hero p{color:var(--mut);margin:28px 0 36px;font-size:1.15rem;opacity:0}
 #hero .btn{opacity:0}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;z-index:-1}
+.orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:.5;z-index:-1}
 .o1{width:40vw;height:40vw;background:var(--acc);top:-10%;left:-10%}
 .o2{width:32vw;height:32vw;background:var(--acc2);bottom:-10%;right:-5%;opacity:.3}
 /* marquee */
@@ -63,7 +63,7 @@ nav .r{display:flex;gap:10px;align-items:center}
 @media(max-width:800px){.fcard{grid-template-columns:1fr;position:relative;top:0}}
 /* agents horizontal */
 #agents{padding:0;overflow:hidden}
-.pin{height:100vh;display:flex;flex-direction:column;justify-content:center}
+.pin{height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center}
 .pin .head{padding:0 6vw;margin-bottom:40px}
 .row{display:flex;gap:30px;padding:0 6vw;width:max-content}
 .agent{width:min(420px,80vw);height:360px;border-radius:28px;padding:36px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
@@ -211,6 +211,8 @@ footer a:hover{color:var(--fg)}
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ignoreMobileResize:true});
+addEventListener('load',()=>ScrollTrigger.refresh());
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* Smooth scroll synced with ScrollTrigger */
@@ -247,8 +249,6 @@ lenis.on('scroll',({scroll})=>{
 /* Marquee (speed reacts to scroll velocity) */
 const tracks=document.querySelectorAll('.track');
 const mq=gsap.to(tracks,{xPercent:-100,repeat:-1,duration:25,ease:'none'});
-lenis.on('scroll',({velocity})=>gsap.to(mq,{timeScale:1+Math.abs(velocity)*.4,duration:.3,overwrite:true}).then(()=>gsap.to(mq,{timeScale:1,duration:1})));
-
 /* Generic reveal */
 gsap.utils.toArray('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
 
