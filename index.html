@@ -239,13 +239,6 @@ gsap.to('.o1',{y:200,scrollTrigger:{trigger:'#hero',scrub:1,start:'top top',end:
 gsap.to('.o2',{y:-150,scrollTrigger:{trigger:'#hero',scrub:1,start:'top top',end:'bottom top'}});
 gsap.to('#hero h1',{yPercent:-20,opacity:.2,scrollTrigger:{trigger:'#hero',scrub:true,start:'top top',end:'bottom top'}});
 
-/* Nav hide on scroll down, show on up */
-let last=0;
-lenis.on('scroll',({scroll})=>{
-  gsap.to('nav',{yPercent:scroll>last&&scroll>200?-150:0,duration:.4,overwrite:true});
-  last=scroll;
-});
-
 /* Marquee (speed reacts to scroll velocity) */
 const tracks=document.querySelectorAll('.track');
 const mq=gsap.to(tracks,{xPercent:-100,repeat:-1,duration:25,ease:'none'});
